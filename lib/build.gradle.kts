@@ -44,13 +44,13 @@ tasks.named<Test>("test") {
 }
 
 
-group = "com.codapt"
+val groupID = "com.codapt"
 version = "0.1.0"
 
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "com.codapt"
+            groupId = groupId
             artifactId = "captive-db"
             version = "0.1.0"
 
