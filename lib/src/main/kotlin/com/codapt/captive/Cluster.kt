@@ -79,4 +79,16 @@ class Cluster(path : String, name: String) {
         return Json.decodeFromString<T>(string) ?: throw SerializationException()
     }
 
+    fun deleteDocuments() {
+        cluster.listFiles().forEach {
+            it.delete()
+        }
+    }
+    fun deleteDocuments(documents : List<String>) {
+        for(doc in documents){
+            val doc = File("${clusterPath}/doc.json")
+            doc.delete()
+        }
+    }
+
 }

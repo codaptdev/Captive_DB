@@ -7,7 +7,7 @@ import kotlin.test.assertEquals
 
 const val parentPath : String = "C:/Users/tadiw/dev/codapt/captive.kt/lib/TestDBS"
 
-internal class CaptiveTest() {
+internal class CaptiveTest {
 
     @Test
     fun initializesDatabase() {
@@ -63,7 +63,29 @@ internal class CaptiveTest() {
 
     }
 
-//    TODO: @Test fun deletesDocuments() {}
+    @Test // Deletes all documents with in a cluster
+    fun deletesDocuments() {
+        val db = Database("test db", parentPath)
+        val testCluster = db.createCluster("test cluster")
+
+        testCluster.addDocument(User("Tadiwa", 25, 'M'), "Tadiwa")
+        testCluster.addDocument(User("Marvin", 16, 'M'), "Marvin")
+        testCluster.addDocument(User("Kudzai", 23, 'M'), "Kudzai")
+        testCluster.addDocument(User("Tawana", 17, 'M'), "Tawana")
+        testCluster.addDocument(User("Tyrik", 15, 'M'), "Tyrik")
+
+        var count = testCluster.cluster.listFiles()?.size ?: 0
+
+        assertEquals(5, count, message = "Number of Users added")
+
+        testCluster.deleteDocuments()
+
+        count = testCluster.cluster.listFiles()?.size ?: 0
+
+        assertEquals(0, count, message = "Number of users remaining")
+
+    }
+//    TODO: @Test fun deletesDocuments() {} // all documents
 //
 //    TODO: @Test fun addsDocuments() {}
 //
