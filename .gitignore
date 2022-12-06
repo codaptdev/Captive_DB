@@ -3,6 +3,8 @@
 
 # Ignore Test Databases generated in development
 lib/TestDBS
+
+# Intelli J idea file
 .idea
 # Ignore Gradle build output directory
 build

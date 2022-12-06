@@ -1,4 +1,4 @@
-
+import java.net.URI
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
@@ -38,22 +38,8 @@ tasks.named<Test>("test") {
     useJUnitPlatform()
 }
 
-
 val groupID = "com.codapt"
 version = "0.1.0"
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = groupId
-            artifactId = "captive-db"
-            version = "0.1.0"
-
-            from(components["java"])
-
-        }
-    }
-}
 
 tasks.jar {
     manifest {
@@ -65,4 +51,16 @@ tasks.jar {
 // to only include .java files in JAR
 java {
     withSourcesJar()
+}
+
+tasks.register("buildLocalPublication") {
+
+    tasks.named("build")
+    println("Built App")
+    tasks.named("publishToMavenLocal")
+    println("Published to Maven Local")
+
+    doLast {
+        println("Done ✅ : built a gradle project and published to Maven Local ")
+    }
 }
