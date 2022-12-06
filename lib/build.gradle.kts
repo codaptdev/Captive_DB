@@ -11,6 +11,8 @@ plugins {
 }
 
 repositories {
+    // use the local Maven repository on my laptop
+    mavenLocal()
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
