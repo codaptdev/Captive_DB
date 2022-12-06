@@ -6,12 +6,14 @@
  * User Manual available at https://docs.gradle.org/7.6/userguide/building_java_projects.html
  */
 
+
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.7.10"
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+    `maven-publish`
     kotlin("plugin.serialization") version "1.7.10"
 }
 
@@ -39,4 +41,20 @@ dependencies {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+
+group = "com.codapt"
+version = "0.1.0"
+
+tasks.jar {
+    manifest {
+        attributes(mapOf("Implementation-Title" to project.name,
+            "Implementation-Version" to project.version))
+    }
+}
+
+// to only include .java files in JAR
+java {
+    withSourcesJar()
 }
