@@ -64,7 +64,7 @@ internal class CaptiveTest {
     }
 
     @Test // Deletes all documents with in a cluster
-    fun deletesDocuments() {
+    fun deletesAllDocuments() {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
 
@@ -85,8 +85,27 @@ internal class CaptiveTest {
         assertEquals(0, count, message = "Number of users remaining")
 
     }
-//    TODO: @Test fun deletesDocuments() {} // all documents
-//
+    @Test
+    fun deletesSelectedDocuments() {
+        val db = Database("test db", parentPath)
+        val testCluster = db.createCluster("test cluster")
+
+        testCluster.addDocument(User("Tadiwa", 25, 'M'), "Tadiwa")
+        testCluster.addDocument(User("Marvin", 16, 'M'), "Marvin")
+        testCluster.addDocument(User("Kudzai", 23, 'M'), "Kudzai")
+        testCluster.addDocument(User("Tawana", 17, 'M'), "Tawana")
+        testCluster.addDocument(User("Tyrik", 15, 'M'), "Tyrik")
+
+        val toBeDeleted = listOf("Tadiwa", "Marvin", "Tyrik")
+
+        testCluster.deleteDocuments(toBeDeleted)
+
+        assertEquals(false, testCluster.docExists("Tadiwa"))
+        assertEquals(false, testCluster.docExists("Marvin"))
+        assertEquals(false, testCluster.docExists("Tyrik"))
+
+    } // all documents
+
 //    TODO: @Test fun addsDocuments() {}
 //
 //    TODO: @Test fun getsDocuments() {}

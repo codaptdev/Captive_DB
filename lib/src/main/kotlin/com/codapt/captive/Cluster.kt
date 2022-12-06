@@ -8,7 +8,7 @@ import kotlinx.serialization.encodeToString
 
 class Cluster(path : String, name: String) {
 
-    var parentPath : String
+    var clusterAbsolutePath : String
     var documentCount = 0
     val cluster : File
     private val clusterPath : String
@@ -18,11 +18,11 @@ class Cluster(path : String, name: String) {
     // Create cluster directory
     init {
         clusterName = fixName(name)
-        parentPath = path
-        clusterPath = "$parentPath/$clusterName"
+        clusterAbsolutePath = path
+        clusterPath = "$clusterAbsolutePath/$clusterName"
         cluster = File(clusterPath)
         if (!cluster.isDirectory) cluster.mkdir()
-        parentPath = cluster.path
+        clusterAbsolutePath = cluster.path
     }
 
 
@@ -35,7 +35,7 @@ class Cluster(path : String, name: String) {
 
         try {
             val documentString = serialize(serializable)
-            val doc = File("$parentPath/$docName.json")
+            val doc = File("$clusterAbsolutePath/$docName.json")
             if (!doc.exists()) doc.createNewFile()
             doc.writeText(documentString)
             addDocumentIndex(docName)
@@ -66,14 +66,14 @@ class Cluster(path : String, name: String) {
     }
 
     fun deleteDocument(docName: String) {
-        val document = File("$parentPath/$docName.json")
+        val document = File("$clusterAbsolutePath/$docName.json")
         if(!document.exists()) throw DocumentDoesNotExist(docName, clusterName)
         else document.delete()
         removeDocumentIndex(docName)
     }
 
     inline fun <reified T>getDocument(docName: String) : T   {
-        val pathName = "$parentPath/$docName.json"
+        val pathName = "$clusterAbsolutePath/$docName.json"
         val doc = File(pathName)
         val string  = doc.readText()
         return Json.decodeFromString<T>(string) ?: throw SerializationException()
@@ -86,9 +86,19 @@ class Cluster(path : String, name: String) {
     }
     fun deleteDocuments(documents : List<String>) {
         for(doc in documents){
-            val doc = File("${clusterPath}/doc.json")
-            doc.delete()
+            val currentDoc = File("${clusterAbsolutePath}/$doc.json")
+            currentDoc.delete()
         }
     }
 
+    /**
+     * @param : The name of the file excluding the .json extension
+     * **/
+    fun docExists(name : String) : Boolean {
+        val file = File("$clusterAbsolutePath/$name.json")
+        return file.exists()
+    }
+
 }
+
+
