@@ -47,6 +47,19 @@ tasks.named<Test>("test") {
 group = "com.codapt"
 version = "0.1.0"
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.codapt"
+            artifactId = "captive-db"
+            version = "0.1.0"
+
+            from(components["java"])
+
+        }
+    }
+}
+
 tasks.jar {
     manifest {
         attributes(mapOf("Implementation-Title" to project.name,
