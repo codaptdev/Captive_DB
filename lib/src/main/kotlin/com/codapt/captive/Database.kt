@@ -5,7 +5,7 @@ import java.nio.file.Paths
 
 class Database(name: String, path : String = ".") {
     private val clusters = mutableListOf<String>()
-    val fullPath : String
+    private val fullPath : String
     val db : File
 
     init {

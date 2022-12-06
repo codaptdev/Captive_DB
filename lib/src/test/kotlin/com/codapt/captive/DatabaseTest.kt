@@ -85,6 +85,9 @@ internal class CaptiveTest {
         assertEquals(0, count, message = "Number of users remaining")
 
     }
+
+
+    // deletes all documents
     @Test
     fun deletesSelectedDocuments() {
         val db = Database("test db", parentPath)
@@ -104,7 +107,7 @@ internal class CaptiveTest {
         assertEquals(false, testCluster.docExists("Marvin"))
         assertEquals(false, testCluster.docExists("Tyrik"))
 
-    } // all documents
+    }
 
 //    TODO: @Test fun addsDocuments() {}
 //
