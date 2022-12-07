@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8831e4cd-9f3a-4d9c-8e91-579304aa0576" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/main/kotlin/com/codapt/captive/Cluster.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/kotlin/com/codapt/captive/Cluster.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/main/kotlin/com/codapt/captive/Database.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/kotlin/com/codapt/captive/Database.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/test/kotlin/com/codapt/captive/DatabaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/test/kotlin/com/codapt/captive/DatabaseTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +48,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Data Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -69,16 +72,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tadiw/dev/codapt/captive.kt&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/tadiw/dev/codapt/captive.kt",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JSON"
+    ]
   }
-}</component>
-  <component name="RunManager" selected="Gradle.CaptiveTest">
+}]]></component>
+  <component name="RunManager" selected="Gradle.CaptiveTest.getsDocument">
     <configuration name="CaptiveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -171,34 +180,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="captive.kt [publishToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CaptiveTest.getsDocument" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="publishToMavenLocal" />
+            <option value=":lib:test" />
+            <option value="--tests" />
+            <option value="&quot;com.codapt.captive.CaptiveTest.getsDocument&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CaptiveTest.getsDocument" />
         <item itemvalue="Gradle.CaptiveTest" />
         <item itemvalue="Gradle.CaptiveTest.deletesSelectedDocuments" />
         <item itemvalue="Gradle.CaptiveTest.deletesDocuments" />
         <item itemvalue="Gradle.CaptiveTest.deletesAllDocuments" />
-        <item itemvalue="Gradle.captive.kt [publishToMavenLocal]" />
       </list>
     </recent_temporary>
   </component>
@@ -217,6 +228,7 @@
       <workItem from="1670343481236" duration="12946000" />
       <workItem from="1670361913916" duration="1058000" />
       <workItem from="1670398523064" duration="6000" />
+      <workItem from="1670436921492" duration="3562000" />
     </task>
     <servers />
   </component>

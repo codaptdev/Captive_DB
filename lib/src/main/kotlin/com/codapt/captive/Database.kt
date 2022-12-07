@@ -24,16 +24,17 @@ class Database(name: String, path : String = ".") {
         return getCluster(clusterName)
     }
 
-    private fun getCluster(name: String): Cluster {
+    fun getCluster(name: String): Cluster {
         val clusterName = fixName(name)
-        if (!clusterExist(clusterName)) throw ClusterDoesNotExist(clusterName, "${db.path}/$clusterName")
+        if (!clusterExist(clusterName)) throw ClusterDoesNotExist(clusterName, "${db.path}\\$clusterName")
         return Cluster(db.path, clusterName)
     }
 
     private fun clusterExist(name: String) : Boolean {
         var found = false
-        clusters.forEach {
-            if(it == name) found = true
+
+        db.listFiles()?.forEach {
+            if(it.name == name) found = true
         }
 
         return found

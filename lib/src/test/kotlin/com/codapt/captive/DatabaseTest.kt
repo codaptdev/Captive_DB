@@ -1,6 +1,7 @@
 package com.codapt.captive
 
 import com.codapt.data.models.User
+import com.codapt.data.models.Word
 import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -19,7 +20,7 @@ internal class CaptiveTest {
     fun initializesCluster() {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
-        assertEquals(true, testCluster.cluster.exists())
+        assertEquals(true, testCluster.exists())
     }
 
     @Test
@@ -63,7 +64,7 @@ internal class CaptiveTest {
 
     }
 
-    @Test // Deletes all documents with in a cluster
+    @Test
     fun deletesAllDocuments() {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
@@ -74,20 +75,18 @@ internal class CaptiveTest {
         testCluster.addDocument(User("Tawana", 17, 'M'), "Tawana")
         testCluster.addDocument(User("Tyrik", 15, 'M'), "Tyrik")
 
-        var count = testCluster.cluster.listFiles()?.size ?: 0
+        var count = testCluster.getDocCount()
 
         assertEquals(5, count, message = "Number of Users added")
 
         testCluster.deleteDocuments()
 
-        count = testCluster.cluster.listFiles()?.size ?: 0
+        count = testCluster.getDocCount()
 
         assertEquals(0, count, message = "Number of users remaining")
 
     }
 
-
-    // deletes all documents
     @Test
     fun deletesSelectedDocuments() {
         val db = Database("test db", parentPath)
@@ -107,6 +106,18 @@ internal class CaptiveTest {
         assertEquals(false, testCluster.docExists("Marvin"))
         assertEquals(false, testCluster.docExists("Tyrik"))
 
+    }
+
+    @Test
+    fun getsDocument() {
+        val dbPath = "C:/Users/tadiw/dev/codapt/captive.kt/lib/TestDBS"
+        val db = Database("words", dbPath)
+        val cluster = db.getCluster("english")
+        val doc = cluster.getDocument<Word>("happy")
+
+        assertEquals("happy", doc.word)
+        assertEquals("en", doc.lang)
+        assertEquals("an emotion of joy", doc.def)
     }
 
 //    TODO: @Test fun addsDocuments() {}

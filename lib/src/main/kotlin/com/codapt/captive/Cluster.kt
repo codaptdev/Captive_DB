@@ -8,9 +8,8 @@ import kotlinx.serialization.encodeToString
 
 class Cluster(path : String, name: String) {
 
-    var clusterAbsolutePath : String
-    var documentCount = 0
-    val cluster : File
+    private var clusterAbsolutePath : String
+    private val cluster : File
     private val clusterPath : String
     private var clusterName : String
     private var documentIndexes = mutableListOf<String>()
@@ -33,14 +32,16 @@ class Cluster(path : String, name: String) {
      * **/
     fun getPath() : String = clusterAbsolutePath
 
+    /**returns the name of the cluster**/
     fun getName() : String = clusterName
 
-//    fun exists() : Boolean = cluster.exists()
+    fun exists() : Boolean = cluster.exists()
 
-    fun documentExists(name : String) : Boolean {
-        val doc = File("$clusterAbsolutePath/$name.json")
-        return doc.exists()
+    fun getFiles() : Array<out File>? {
+        return cluster.listFiles()
     }
+
+    fun getDocCount() : Int? = getFiles()?.size
 
     /**
      *Creates a new json document
@@ -51,11 +52,10 @@ class Cluster(path : String, name: String) {
 
         try {
             val documentString = serialize(serializable)
-            val doc = File("$clusterAbsolutePath/$docName.json")
+            val doc = File("${getPath()}/$docName.json")
             if (!doc.exists()) doc.createNewFile()
             doc.writeText(documentString)
             addDocumentIndex(docName)
-            documentCount++
         }
         catch (e : SerializationException) {
             serializableException()
@@ -89,7 +89,7 @@ class Cluster(path : String, name: String) {
     }
 
     inline fun <reified T>getDocument(docName: String) : T   {
-        val pathName = "$clusterAbsolutePath/$docName.json"
+        val pathName = "${getPath()}/$docName.json"
         val doc = File(pathName)
         val string  = doc.readText()
         return Json.decodeFromString<T>(string) ?: throw SerializationException()
