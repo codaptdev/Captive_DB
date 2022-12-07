@@ -81,6 +81,7 @@ internal class CaptiveTest {
 
     }
 
+
     @Test
     fun deletesSelectedDocuments() {
         val db = Database("test db", parentPath)
