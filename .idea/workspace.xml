@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8831e4cd-9f3a-4d9c-8e91-579304aa0576" name="Changes" comment="doc: creating DB and Cluster" />
+    <list default="true" id="8831e4cd-9f3a-4d9c-8e91-579304aa0576" name="Changes" comment="fix: version lib folder">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -253,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670449580018</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: version lib folder">
+      <created>1670449889111</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670449889111</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,6 +302,7 @@
     <MESSAGE value="snapshot: its working " />
     <MESSAGE value="snapshot: its working " />
     <MESSAGE value="doc: creating DB and Cluster" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc: creating DB and Cluster" />
+    <MESSAGE value="fix: version lib folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: version lib folder" />
   </component>
 </project>
