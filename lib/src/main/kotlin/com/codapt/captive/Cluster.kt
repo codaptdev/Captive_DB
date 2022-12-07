@@ -25,6 +25,22 @@ class Cluster(path : String, name: String) {
         clusterAbsolutePath = cluster.path
     }
 
+    /**Gets full path to cluster
+     *
+     *
+     *  for example the full path for a cluster named users  in the home path would be
+     *  the ~/database/cluster
+     * **/
+    fun getPath() : String = clusterAbsolutePath
+
+    fun getName() : String = clusterName
+
+//    fun exists() : Boolean = cluster.exists()
+
+    fun documentExists(name : String) : Boolean {
+        val doc = File("$clusterAbsolutePath/$name.json")
+        return doc.exists()
+    }
 
     /**
      *Creates a new json document
@@ -80,7 +96,7 @@ class Cluster(path : String, name: String) {
     }
 
     fun deleteDocuments() {
-        cluster.listFiles().forEach {
+        cluster.listFiles()?.forEach {
             it.delete()
         }
     }
