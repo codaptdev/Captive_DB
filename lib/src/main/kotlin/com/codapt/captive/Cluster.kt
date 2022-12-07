@@ -56,7 +56,6 @@ class Cluster(path : String, name: String) {
             val doc = File("${getPath()}/$docName.json")
             if (!doc.exists()) doc.createNewFile()
             doc.writeText(documentString)
-            addDocumentIndex(docName)
         }
         catch (e : SerializationException) {
             serializableException()
@@ -74,19 +73,10 @@ class Cluster(path : String, name: String) {
                 """.trimIndent())
     }
 
-    fun addDocumentIndex(addedFileName : String) {
-        documentIndexes.add(addedFileName)
-    }
-
-    private fun removeDocumentIndex(deletedFileName : String) {
-        documentIndexes.remove(deletedFileName)
-    }
-
     fun deleteDocument(docName: String) {
         val document = File("$clusterAbsolutePath/$docName.json")
         if(!document.exists()) throw DocumentDoesNotExist(docName, clusterName)
         else document.delete()
-        removeDocumentIndex(docName)
     }
 
     inline fun <reified T>getDocument(docName: String) : T   {
@@ -122,6 +112,17 @@ class Cluster(path : String, name: String) {
             val doc = getDocument<T>(it.nameWithoutExtension)
             list.add(doc)
         }
+        return Json.encodeToString(list)
+    }
+
+    /**Returns JSON string of document names passed***/
+    inline fun <reified T>getDocuments(docs: List<String>) : String {
+        val list : @Serializable MutableList<T> = mutableListOf()
+
+        docs.forEach {
+            if (docExists(it)) list.add(getDocument(it))
+        }
+
         return Json.encodeToString(list)
     }
 

@@ -123,9 +123,20 @@ internal class CaptiveTest {
         val db = Database("words", dbPath)
         val cluster = db.getCluster("english")
 
-        val expected = "[{\"word\":\"happy\",\"def\":\"an emotion of joy\",\"lang\":\"en\"},{\"word\":\"sad\",\"def\":\"an gloomy emotion\",\"lang\":\"en\"}]"
+        val expected = "[{\"word\":\"api\",\"def\":\"a point at which a user can interact with a computer system without being exposed to its complexity\",\"lang\":\"en\"},{\"word\":\"happy\",\"def\":\"an emotion of joy\",\"lang\":\"en\"},{\"word\":\"sad\",\"def\":\"an gloomy emotion\",\"lang\":\"en\"}]"
         val result = cluster.getDocuments<Word>()
         assertEquals(expected, result)
+    }
+
+    @Test
+    fun getsSelectedDocuments() {
+        val expected = "[{\"word\":\"happy\",\"def\":\"an emotion of joy\",\"lang\":\"en\"},{\"word\":\"sad\",\"def\":\"an gloomy emotion\",\"lang\":\"en\"}]"
+        val dbPath = "C:/Users/tadiw/dev/codapt/captive.kt/lib/TestDBS"
+        val db = Database("words", dbPath)
+        val cluster = db.getCluster("english")
+        val actual = cluster.getDocuments<Word>(listOf("happy", "sad"))
+
+        assertEquals(expected, actual)
     }
 
 }
