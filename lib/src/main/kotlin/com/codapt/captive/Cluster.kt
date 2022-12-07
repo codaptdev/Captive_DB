@@ -1,6 +1,5 @@
 package com.codapt.captive
 
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -116,13 +115,6 @@ class Cluster(path : String, name: String) {
         return file.exists()
     }
 
-    inline fun <reified T>getDocuments() : String {
-        val list : @Serializable MutableList<T> = mutableListOf()
-        getFiles()?.forEach {
-            val doc = getDocument<T>(it.nameWithoutExtension)
-            list.add(doc)
-        }
-        return Json.encodeToString(list)
-    }
-
 }
+
+

@@ -1,6 +1,7 @@
 package com.codapt.captive
 
 import java.io.File
+import java.nio.file.Paths
 
 class Database(name: String, path : String = ".") {
     private val clusters = mutableListOf<String>()
@@ -29,11 +30,11 @@ class Database(name: String, path : String = ".") {
         return Cluster(db.path, clusterName)
     }
 
-    private fun clusterExist(nameWithoutExtension: String) : Boolean {
+    private fun clusterExist(name: String) : Boolean {
         var found = false
 
         db.listFiles()?.forEach {
-            if(it.nameWithoutExtension == nameWithoutExtension) found = true
+            if(it.name == name) found = true
         }
 
         return found
