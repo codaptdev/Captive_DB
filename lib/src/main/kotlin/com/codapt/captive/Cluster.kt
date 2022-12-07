@@ -1,11 +1,11 @@
 package com.codapt.captive
 
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.File
 import kotlinx.serialization.encodeToString
+import kotlinx.serialization.Serializable
 
 class Cluster(path : String, name: String) {
 
@@ -13,7 +13,6 @@ class Cluster(path : String, name: String) {
     private val cluster : File
     private val clusterPath : String
     private var clusterName : String
-    private var documentIndexes = mutableListOf<String>()
 
     // Create cluster directory
     init {
