@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8831e4cd-9f3a-4d9c-8e91-579304aa0576" name="Changes" comment="fix-conflict:(tests) fixed test for get all documents" />
+    <list default="true" id="8831e4cd-9f3a-4d9c-8e91-579304aa0576" name="Changes" comment="snapshot: its working 🥲">
+      <change afterPath="$PROJECT_DIR$/documentation/REAME.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +55,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="5d573612e9dbc29f2f286e6a55fdcdcf7703925a" />
+        <entry key="$PROJECT_DIR$" value="11b2fe222bf1af17f916581ce8254366a367a93d" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,7 +86,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Gradle.CaptiveTest.deletesAllDocuments">
+  <component name="RunManager" selected="Gradle.CaptiveTest">
     <configuration name="CaptiveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -201,10 +205,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.CaptiveTest" />
-        <item itemvalue="Gradle.CaptiveTest.deletesAllDocuments" />
         <item itemvalue="Gradle.CaptiveTest.getsDocument" />
         <item itemvalue="Gradle.CaptiveTest.deletesSelectedDocuments" />
         <item itemvalue="Gradle.CaptiveTest.deletesDocuments" />
+        <item itemvalue="Gradle.CaptiveTest.deletesAllDocuments" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670446246452</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="snapshot: its working 🥲">
+      <created>1670446580039</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670446580039</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +262,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix-conflict:(tests) fixed test for get all documents" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix-conflict:(tests) fixed test for get all documents" />
+    <MESSAGE value="snapshot: its working " />
+    <option name="LAST_COMMIT_MESSAGE" value="snapshot: its working " />
   </component>
 </project>
