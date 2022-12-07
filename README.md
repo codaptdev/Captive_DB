@@ -1,7 +1,7 @@
 Author: [ 🧑‍💻Tadiwanashe Shangwa - Codapt Co-founder](https://github.com/Tadiwr)
 
 ### Documentation
-- [Captive Docs 📄](documentation/REAME.md)
+- [Captive Docs 📄](dev/codapt/captive.kt/lib/documentation/REAME.md)
 
 ## What is Captive DB?
 Captive DB is a Kotlin library for creating a managing
