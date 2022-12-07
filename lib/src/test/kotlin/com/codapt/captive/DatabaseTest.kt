@@ -74,14 +74,9 @@ internal class CaptiveTest {
         testCluster.addDocument(User("Kudzai", 23, 'M'), "Kudzai")
         testCluster.addDocument(User("Tawana", 17, 'M'), "Tawana")
         testCluster.addDocument(User("Tyrik", 15, 'M'), "Tyrik")
-
-        var count = testCluster.getDocCount()
-
-        assertEquals(5, count, message = "Number of Users added")
-
         testCluster.deleteDocuments()
 
-        count = testCluster.getDocCount()
+        val count = testCluster.getDocCount()
 
         assertEquals(0, count, message = "Number of users remaining")
 
@@ -121,15 +116,17 @@ internal class CaptiveTest {
         assertEquals("an emotion of joy", doc.def)
     }
 
-//    TODO: @Test fun addsDocuments() {}
-//
-//    TODO: @Test fun getsDocuments() {}
-
-<<<<<<< HEAD
+    @Test
+    fun getsAllDocuments() {
+        val dbPath = "C:/Users/tadiw/dev/codapt/captive.kt/lib/TestDBS"
+        val db = Database("words", dbPath)
+        val cluster = db.getCluster("english")
+        val actual = cluster.getDocuments<Word>()
         val expected = "[{\"word\":\"api\",\"def\":\"a point at which a user can interact with a computer system without being exposed to its complexity\",\"lang\":\"en\"},{\"word\":\"happy\",\"def\":\"an emotion of joy\",\"lang\":\"en\"},{\"word\":\"sad\",\"def\":\"an gloomy emotion\",\"lang\":\"en\"}]"
         val result = cluster.getDocuments<Word>()
         assertEquals(expected, result)
     }
+
 
     @Test
     fun getsSelectedDocuments() {
@@ -143,6 +140,3 @@ internal class CaptiveTest {
     }
 
 }
-=======
-}
->>>>>>> master
