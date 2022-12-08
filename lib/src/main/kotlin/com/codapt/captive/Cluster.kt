@@ -16,7 +16,7 @@ class Cluster(path : String, name: String) {
 
     // Create cluster directory
     init {
-        clusterName = fixName(name)
+        clusterName = formatName(name)
         clusterAbsolutePath = path
         clusterPath = "$clusterAbsolutePath/$clusterName"
         cluster = File(clusterPath)
@@ -48,7 +48,7 @@ class Cluster(path : String, name: String) {
      * @param docName : [String] the file name excluding the file extension
      * @param serializable : @Serializable data class that will be encoded to json and written to a file
      **/
-    inline fun <reified T> addDocument(serializable : T, docName :String)  {
+    inline fun <reified T> insertDocument(serializable : T, docName :String)  {
 
         try {
             val documentString = serialize(serializable)

@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 
 const val parentPath : String = "C:/Users/tadiw/dev/codapt/captive.kt/lib/TestDBS"
 
-internal class CaptiveTest {
+internal class DatabaseTest {
 
     @Test
     fun initializesDatabase() {
@@ -28,7 +28,7 @@ internal class CaptiveTest {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
         val user = User("Tadiwanashe", 17, 'M')
-        testCluster.addDocument(user, user.name)
+        testCluster.insertDocument(user, user.name)
         val file = File("$parentPath/test_db/test_cluster/Tadiwanashe.json")
         assertEquals(true, file.exists())
     }
@@ -38,7 +38,7 @@ internal class CaptiveTest {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
         val user = User("Joe", 34, 'M')
-        testCluster.addDocument(user, user.name)
+        testCluster.insertDocument(user, user.name)
         val file = File("$parentPath/test_db/test_cluster/Joe.json")
 
         val expected = """{"name":"Joe","age":34,"gender":"M"}""".trimIndent()
@@ -52,7 +52,7 @@ internal class CaptiveTest {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
         val user = User("Tadiwa", 25, 'M')
-        testCluster.addDocument(user, user.name)
+        testCluster.insertDocument(user, user.name)
         val file = File("$parentPath/test_db/test_cluster/Tadiwa.json")
 
         // Test if file was created in the first place
@@ -69,11 +69,11 @@ internal class CaptiveTest {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
 
-        testCluster.addDocument(User("Tadiwa", 25, 'M'), "Tadiwa")
-        testCluster.addDocument(User("Marvin", 16, 'M'), "Marvin")
-        testCluster.addDocument(User("Kudzai", 23, 'M'), "Kudzai")
-        testCluster.addDocument(User("Tawana", 17, 'M'), "Tawana")
-        testCluster.addDocument(User("Tyrik", 15, 'M'), "Tyrik")
+        testCluster.insertDocument(User("Tadiwa", 25, 'M'), "Tadiwa")
+        testCluster.insertDocument(User("Marvin", 16, 'M'), "Marvin")
+        testCluster.insertDocument(User("Kudzai", 23, 'M'), "Kudzai")
+        testCluster.insertDocument(User("Tawana", 17, 'M'), "Tawana")
+        testCluster.insertDocument(User("Tyrik", 15, 'M'), "Tyrik")
         testCluster.deleteDocuments()
 
         val count = testCluster.getDocCount()
@@ -88,11 +88,11 @@ internal class CaptiveTest {
         val db = Database("test db", parentPath)
         val testCluster = db.createCluster("test cluster")
 
-        testCluster.addDocument(User("Tadiwa", 25, 'M'), "Tadiwa")
-        testCluster.addDocument(User("Marvin", 16, 'M'), "Marvin")
-        testCluster.addDocument(User("Kudzai", 23, 'M'), "Kudzai")
-        testCluster.addDocument(User("Tawana", 17, 'M'), "Tawana")
-        testCluster.addDocument(User("Tyrik", 15, 'M'), "Tyrik")
+        testCluster.insertDocument(User("Tadiwa", 25, 'M'), "Tadiwa")
+        testCluster.insertDocument(User("Marvin", 16, 'M'), "Marvin")
+        testCluster.insertDocument(User("Kudzai", 23, 'M'), "Kudzai")
+        testCluster.insertDocument(User("Tawana", 17, 'M'), "Tawana")
+        testCluster.insertDocument(User("Tyrik", 15, 'M'), "Tyrik")
 
         val toBeDeleted = listOf("Tadiwa", "Marvin", "Tyrik")
 
@@ -121,7 +121,6 @@ internal class CaptiveTest {
         val dbPath = "C:/Users/tadiw/dev/codapt/captive.kt/lib/TestDBS"
         val db = Database("words", dbPath)
         val cluster = db.getCluster("english")
-        val actual = cluster.getDocuments<Word>()
         val expected = "[{\"word\":\"api\",\"def\":\"a point at which a user can interact with a computer system without being exposed to its complexity\",\"lang\":\"en\"},{\"word\":\"happy\",\"def\":\"an emotion of joy\",\"lang\":\"en\"},{\"word\":\"sad\",\"def\":\"an gloomy emotion\",\"lang\":\"en\"}]"
         val result = cluster.getDocuments<Word>()
         assertEquals(expected, result)

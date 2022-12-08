@@ -8,7 +8,7 @@ class Database(name: String, path : String = ".") {
     val db : File
 
     init {
-        val dbName = fixName(name)
+        val dbName = formatName(name)
         db = File("$path/$dbName")
         db.mkdir()
         fullPath = db.absolutePath
@@ -16,7 +16,7 @@ class Database(name: String, path : String = ".") {
 
     fun createCluster(name: String) : Cluster {
         val dbPath = db.path
-        val clusterName = fixName(name)
+        val clusterName = formatName(name)
         val cluster = File("$dbPath/$clusterName")
         cluster.mkdir()
         clusters.add(clusterName)
@@ -24,7 +24,7 @@ class Database(name: String, path : String = ".") {
     }
 
     fun getCluster(name: String): Cluster {
-        val clusterName = fixName(name)
+        val clusterName = formatName(name)
         if (!clusterExist(clusterName)) throw ClusterDoesNotExist(clusterName, "${db.path}\\$clusterName")
         return Cluster(db.path, clusterName)
     }
