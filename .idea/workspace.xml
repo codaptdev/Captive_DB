@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8831e4cd-9f3a-4d9c-8e91-579304aa0576" name="Changes" comment="fix: (Utils) corrected the formatName method&#10;&#10;Also&#10;-  Changed wording from addDocument to insertDocument&#10;- Renamed CaptiveTest class to DatabaseTest">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/test/kotlin/com/codapt/captive/DatabaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/test/kotlin/com/codapt/captive/DatabaseTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,30 @@
       <recent name="C:\Users\tadiw\dev\codapt\captive.kt\lib" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.UtilsTest">
+    <configuration name="DatabaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":lib:test" />
+            <option value="--tests" />
+            <option value="&quot;com.codapt.captive.DatabaseTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Tests in 'captive.lib.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -120,8 +143,38 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="UtilsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":lib:test" />
+            <option value="--tests" />
+            <option value="&quot;com.codapt.captive.UtilsTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.DatabaseTest" />
+      <item itemvalue="Gradle.UtilsTest" />
+      <item itemvalue="Gradle.Tests in 'captive.lib.test'" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UtilsTest" />
+        <item itemvalue="Gradle.DatabaseTest" />
         <item itemvalue="Gradle.Tests in 'captive.lib.test'" />
       </list>
     </recent_temporary>
@@ -143,7 +196,7 @@
       <workItem from="1670398523064" duration="6000" />
       <workItem from="1670436921492" duration="3562000" />
       <workItem from="1670501229747" duration="1487000" />
-      <workItem from="1670531761187" duration="9964000" />
+      <workItem from="1670531761187" duration="10951000" />
     </task>
     <task id="LOCAL-00001" summary="fix-conflict:(tests) fixed test for get all documents">
       <created>1670446246452</created>
@@ -180,7 +233,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670541716303</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix: (Utils) corrected the formatName method&#10;&#10;Also&#10;-  Changed wording from addDocument to insertDocument&#10;- Renamed CaptiveTest class to DatabaseTest">
+      <created>1670542059673</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670542059673</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: (Utils) corrected the formatName method&#10;&#10;Also&#10;-  Changed wording from addDocument to insertDocument&#10;- Renamed CaptiveTest class to DatabaseTest">
+      <created>1670542098078</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670542098078</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

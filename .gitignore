@@ -6,4 +6,5 @@ lib/TestDBS
 
 # Ignore Gradle build output directory
 build
-/.idea/
+/.idea
+/.idea/workspace.xml
